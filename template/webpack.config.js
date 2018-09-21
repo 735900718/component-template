@@ -99,6 +99,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
+  module.exports.entry = './test/main.js';
   module.exports.externals = {
     vue: {
       root: 'Vue',
@@ -122,4 +123,9 @@ if (process.env.NODE_ENV === 'production') {
       minimize: true
     })
   ])
+  if (process.env.npm_config_report) {
+    module.exports.plugins.push(
+      new BundleAnalyzerPlugin()
+    )
+  }
 }
