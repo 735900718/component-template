@@ -3,7 +3,7 @@ var webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './test/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -99,7 +99,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.entry = './test/main.js';
+  module.exports.entry = './src/index.js';
   module.exports.externals = {
     vue: {
       root: 'Vue',
