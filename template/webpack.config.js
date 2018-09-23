@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: './test/main.js',
