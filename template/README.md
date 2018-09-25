@@ -2,17 +2,30 @@
 
 > {{ description }}
 
-## Build Setup
+## 开发相关
 
+### 指令
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 测试组件
 npm run dev
 
-# build for production with minification
+# 打包文件
 npm run build
-```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# 打包文件并分析
+npm run build --report
+```
+### 目录说明
+```
+.
+├── README.md
+├── dist                // => 打包生成文件
+├── src                 // => 插件文件
+├── test                // => 测试文件
+├── index.html
+├── package.json
+└── webpack.config.js
+```
