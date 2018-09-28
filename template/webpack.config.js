@@ -1,9 +1,12 @@
 var path = require('path')
 var webpack = require('webpack')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const { VueLoaderPlugin } = require('vue-loader')
+
 
 module.exports = {
+  mode: process.env.NODE_ENV,
   entry: './test/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -67,8 +70,9 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
+        loader: 'url-loader',
         options: {
+          limit: 10000,
           name: '[name].[ext]?[hash]'
         }
       },
@@ -96,7 +100,10 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new VueLoaderPlugin()
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
